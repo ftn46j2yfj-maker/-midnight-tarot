@@ -1,0 +1,25 @@
+/* Wandering luminous stag overlay. Never blocks clicks. */
+.stag-wander{position:fixed;inset:0;z-index:30;pointer-events:none;overflow:hidden;contain:strict}
+.stag-wander[hidden]{display:none}
+.sw-sparks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.sw-fig{position:absolute;left:0;top:0;pointer-events:none;transform-origin:50% 92.97%;will-change:transform,opacity;opacity:0}
+.sw-body{position:absolute;inset:0;-webkit-box-reflect:below -7.2% linear-gradient(to bottom,transparent 52%,rgba(255,255,255,.26));mix-blend-mode:screen}
+.sw-walk,.sw-pose{position:absolute;inset:0;pointer-events:none}
+.sw-frame{position:absolute;inset:0;display:block;background:url("./stag-walk.webp?v=7") 0 0/200% 200% no-repeat;opacity:0}
+.sw-frame:first-child{opacity:1}
+.sw-pose{opacity:0;transform-origin:50% 93%}
+.sw-pose img{position:absolute;left:50%;top:2.7%;height:90.3%;width:auto;transform:translateX(-50%);display:block;opacity:.92}
+/* cool halo + pool of light under the hooves */
+.sw-aura{position:absolute;inset:-14% -10% -4%;pointer-events:none;background:radial-gradient(ellipse at 50% 48%,rgba(92,160,235,.2),rgba(70,130,210,.09) 38%,transparent 68%);filter:blur(6px)}
+.sw-ground{position:absolute;left:12%;right:6%;top:88%;height:10%;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,rgba(190,232,255,.42),rgba(100,165,235,.16) 45%,transparent 70%);filter:blur(4px)}
+/* unobtrusive show / hide switch */
+.stag-toggle{position:fixed;z-index:60;left:max(10px,env(safe-area-inset-left));bottom:max(10px,env(safe-area-inset-bottom));width:34px;height:34px;padding:0;display:grid;place-items:center;border-radius:50%;
+ color:#a9d4ff;background:rgba(16,14,24,.55);border:1px solid rgba(160,205,255,.32);cursor:pointer;opacity:.5;transition:opacity .25s,background .25s;-webkit-tap-highlight-color:transparent}
+.stag-toggle svg{width:20px;height:20px}
+.stag-toggle:hover,.stag-toggle:focus-visible{opacity:1;background:rgba(24,30,52,.8)}
+.stag-toggle[aria-pressed="false"]{color:#8d8a9a;border-color:rgba(190,190,210,.25)}
+.stag-toggle[aria-pressed="false"] svg{opacity:.7}
+.stag-toggle:focus-visible{outline:2px solid #bfe3ff;outline-offset:2px}
+/* the walking stag replaces the page's static backdrop stag while it is on */
+html.sw-on .ghost-elk>img.stag-fallback{opacity:0;transition:opacity 1s}
+@media(max-width:615px){.stag-toggle{width:32px;height:32px}}

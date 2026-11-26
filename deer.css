@@ -1,0 +1,67 @@
+/* A theatrical backdrop only. It never participates in layout or hit testing. */
+.ghost-elk{
+ position:fixed;inset:0 0 auto;height:100vh;height:100svh;overflow:hidden;pointer-events:none;z-index:-1;
+ contain:paint;isolation:isolate;--elk-width:clamp(26rem,49vw,47rem);
+}
+.ghost-elk::before,.ghost-elk::after{content:"";position:absolute;inset:0;pointer-events:none}
+.ghost-elk::before{
+ background:linear-gradient(90deg,#16151b 0%,#16151b22 64%,transparent),
+ radial-gradient(ellipse at 72% 62%,#505a733a,transparent 62%),
+ url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1050' height='440' viewBox='0 0 1050 440'%3E%3Cg fill='%23121620'%3E%3Cpath d='M522 365l3-228 9-137h13l-8 142 26-46 61-52-61 62-28 65 1 194zm169 9 7-229-4-145h13l4 114 28-37 45-31-40 42-32 66 4 215zm242-11-6-203-20-75-42-56 47 46 17 54 6-129h17l-13 143 22-23 48-18-41 25-30 44 9 190zM804 351l1-141-8-69-27-46 33 40 7 38 7-125 6-48h6l-5 66-4 105 40-53-40 67-1 174zm185 6 7-160 8-155 5-42h14l-15 103-1 78 29-75 14-11v12l-23 60-22 54-7 137z'/%3E%3C/g%3E%3Cg fill='%23202333' opacity='.6'%3E%3Cpath d='M590 348l-4-224 4-124h7l-3 124 5 222zm69 7-4-168-14-49 14 32 5-170h5l-2 166 26-39-27 63 6 163zm81 0 4-194-4-161h5l5 129 24-56-24 76-3 207zm150 0-4-215 6-140h7l-8 140 7 213z'/%3E%3C/g%3E%3C/svg%3E") center top / cover no-repeat;
+ opacity:.75;
+}
+.ghost-elk img,.ghost-elk>svg{
+ position:absolute;display:block;width:var(--elk-width);height:auto;
+ left:32%;top:-1rem;opacity:.85;overflow:visible;
+ filter:drop-shadow(0 0 3px #a2d5ff48) drop-shadow(0 0 14px #559bdd45);
+}
+.ghost-elk>svg{left:0;top:0;will-change:transform,opacity}
+.ghost-elk::after{
+ background:linear-gradient(90deg,#1a181d9c 0%,#1a181d5c 32%,transparent 60%),
+ radial-gradient(ellipse at 79% 74%,#a6afc11a,transparent 49%);
+}
+.ghost-elk::before{opacity:.44;background-position:center,center,center;background-size:auto,auto,cover}
+.orbit{opacity:.24}
+.elk-clearing{display:none}
+/* Let the woodland show faintly between solid card faces, not across card artwork. */
+.board{background:radial-gradient(ellipse at 52% -20%,#523a29cc 0,transparent 55%),#1a171bbb}
+.result{background:#252128d5}
+@media(max-width:615px){
+ .ghost-elk{--elk-width:14.6rem}
+ .ghost-elk img{top:245px;left:calc(50% - 101px)}
+ .ghost-elk::before{background-position:center,center,74% 50%;opacity:.57}
+ .ghost-elk::after{background:linear-gradient(90deg,#1a181d94,transparent 48%,#1a181d24)}
+ .elk-clearing{display:block;height:147px;margin-top:-8px}
+ .intro .orbit{opacity:.27}
+}
+@media(prefers-reduced-motion:reduce){
+ .ghost-elk>svg{will-change:auto}
+}
+
+.ghost-elk .elk-ground-mist{position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:radial-gradient(ellipse at 34% 65%,#688cb040,transparent 54%);
+ filter:blur(19px);animation:elk-haze 24s ease-in-out infinite alternate;
+}
+@keyframes elk-haze{from{transform:translate(-17%,5%) scale(1.14)}to{transform:translate(21%,-7%) scale(1.23)}}
+@media(prefers-reduced-motion:reduce){.ghost-elk .elk-ground-mist{animation:none}}
+
+/* The translucent stag and its reflected light sit on a stable forest plane. */
+.ghost-elk>.stag-figure{--stag-width:clamp(20rem,42vw,38rem);position:absolute;top:0;left:0;width:var(--stag-width);aspect-ratio:576/512;pointer-events:none;transform-origin:50% 0;will-change:transform,opacity;opacity:0}
+.stag-figure canvas{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+.stag-figure .stag-light{opacity:.30;transform-origin:50% 0;transform:translateY(130.2%) scaleY(-.40);filter:blur(1.75px);mask-image:linear-gradient(to top,#000 8%,#000b 22%,transparent 73%)}
+.stag-figure::before{content:"";position:absolute;z-index:-1;inset:-6% -5% 3%;background:radial-gradient(ellipse at 51% 51%,#4384bb25 0%,#3e78a713 28%,transparent 67%)}
+.stag-figure::after{content:"";position:absolute;left:6%;right:1%;top:90.5%;height:12%;background:radial-gradient(ellipse at 58% 30%,#b8e6ff75,transparent 61%),radial-gradient(ellipse at 33% 55%,#5a98c260,transparent 68%);transform:skewX(-18deg);filter:blur(3px);opacity:.65}
+.ghost-elk>img.stag-fallback{height:clamp(13rem,37vh,27rem);width:auto;left:63%;top:clamp(14px,5vh,68px);filter:none;opacity:.76}
+@media(max-width:615px){
+ .ghost-elk>.stag-figure{--stag-width:clamp(15rem,64vw,21rem)}
+ .ghost-elk>img.stag-fallback{height:clamp(10rem,29svh,14rem);top:9svh;left:49%}
+}
+@media(prefers-reduced-motion:reduce){.ghost-elk>.stag-figure{will-change:auto}}
+
+/* Hoof light is drawn behind the stag, in stable viewport coordinates. */
+.ghost-elk>.stag-tracks{
+ position:absolute;inset:0;width:100%;height:100%;overflow:hidden;
+ opacity:1;filter:none;will-change:auto;pointer-events:none
+}
+.stag-track-halo{filter:blur(2.3px)}
+@media(prefers-reduced-motion:reduce){.ghost-elk>.stag-tracks{display:none}}
