@@ -3,49 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#100b11">
+<meta name="theme-color" content="#070506">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<meta name="description" content="燭光下的塔羅牌桌。二十二張大阿爾克那，由妳自己選牌，單張提問或三張梳理。">
+<meta name="description" content="午夜的哥德式大教堂裡，燭光下的塔羅牌桌。二十二張大阿爾克那，由妳自己選牌，單張提問或三張梳理。">
 <title>午夜牌室｜塔羅</title>
-<link rel="stylesheet" href="./style.css">
-<link rel="stylesheet" href="./deer.css?v=forest-8">
-<link rel="stylesheet" href="./chamber.css?v=vesper-2">
-<link rel="stylesheet" href="./gothic.css?v=6">
-<link rel="stylesheet" href="./wander.css?v=1">
-<link rel="stylesheet" href="./ritual.css?v=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070506'/%3E%3Cpath d='M21 6a10 10 0 1 0 0 20 8 8 0 1 1 0-20z' fill='%23d9b46a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;900&family=UnifrakturMaguntia&display=swap">
+<link rel="preload" as="image" href="./nave.webp">
+<link rel="stylesheet" href="./noir.css?v=3">
+<link rel="stylesheet" href="./wander.css?v=3">
+<link rel="stylesheet" href="./ritual.css?v=3">
 <script defer src="./sound.js?v=8"></script>
-<script defer src="./tarot.js?v=reading-7"></script>
+<script defer src="./tarot.js?v=noir-3"></script>
 <script defer src="./wander.js?v=1"></script>
-<script defer src="./ritual.js?v=1"></script>
+<script defer src="./ritual.js?v=3"></script>
 </head>
 <body>
-<div class="nocturne" aria-hidden="true"><i></i><i></i></div>
-<div class="ghost-elk" aria-hidden="true"><img class="stag-fallback" src="./stag-watch.webp?v=7" alt=""></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+  <symbol id="o-moon" viewBox="0 0 24 24"><path d="M15.5 3.2a9 9 0 1 0 5.3 15.3A7.4 7.4 0 0 1 15.5 3.2Z" fill="currentColor"/></symbol>
+  <symbol id="o-rule" viewBox="0 0 320 24"><g fill="none" stroke="currentColor" stroke-width=".9" stroke-linecap="round"><path d="M4 12h118m76 0h118"/><path d="M30 12l-5-4m15 4-5 4m15-4-5-4m15 4-5 4m15-4-5-4m15 4-5 4m15-4-5-4M290 12l5-4m-15 4 5 4m-15-4 5-4m-15 4 5 4m-15-4 5-4m-15 4 5 4m-15-4 5-4"/><path d="M122 12c8 0 10-7 18-7m58 7c-8 0-10-7-18-7M122 12c8 0 10 7 18 7m58-7c-8 0-10 7-18 7"/><circle cx="160" cy="12" r="9"/><path d="M160 1v22M149 12h22"/></g><path d="M163.5 7.2a5 5 0 1 0 0 9.6 4 4 0 1 1 0-9.6Z" fill="currentColor"/><path d="M4 12l-3-3v6Zm312 0 3-3v6Z" fill="currentColor"/></symbol>
+  <symbol id="o-corner" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M2 38V2h36"/><path d="M6 34V6h28" opacity=".55"/><path d="M6 6c10 0 14 4 14 14M6 6c0 10 4 14 14 14" opacity=".8"/><path d="M20 20c3 0 5 2 5 5m-5-5c0 3 2 5 5 5"/></g><path d="M2 2l5 0 0 5z" fill="currentColor"/></symbol>
+  
+ </defs>
+</svg>
+<div class="nave" aria-hidden="true"><i class="fog"></i><i class="fog f2"></i><i class="candle c1"></i><i class="candle c2"></i></div>
+<div class="grain" aria-hidden="true"></div>
 <a class="skip" href="#draw">跳至選牌</a>
-<div class="chamber-depth" aria-hidden="true"></div>
-<div class="vesper-effects" aria-hidden="true"><span class="wick"></span><span class="wick"></span><span class="low-mist"></span><div class="motes"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
 <header class="mast wrap">
-<a class="brand" href="./" aria-label="午夜牌室首頁"><svg class="seal" viewBox="0 0 42 42" aria-hidden="true"><path d="M21 2 39 11v20l-18 9-18-9V11Zm0 4 14 7v16l-14 7-14-7V13Z" fill="none" stroke="currentColor"/><path d="M21 11v20m-9-10h18m-15-6 12 12m0-12L15 27" stroke="currentColor" stroke-width=".8"/><path d="m21 15 2 4 4 2-4 2-2 4-2-4-4-2 4-2Z" fill="currentColor"/></svg><span>午夜牌室<small>THE VESPER CHAMBER</small></span></a><div class="mast-side"><span class="edition"><span>ARCANA MAGNA</span><br>大阿爾克那 · 22 張</span><button class="sound-toggle" type="button" id="sound-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 18V6l11-3v12M9 9l11-3"/><ellipse cx="6.5" cy="18.5" rx="2.5" ry="2"/><ellipse cx="17.5" cy="15.5" rx="2.5" ry="2"/></svg><span id="sound-label">播放音樂</span></button><span class="sr-status" id="sound-status" role="status"></span><audio id="chamber-audio" src="./cathedral-loop.mp3?v=6" preload="none" loop></audio></div>
+<a class="brand" href="./" aria-label="午夜牌室首頁"><svg class="seal" viewBox="0 0 24 24" aria-hidden="true"><use href="#o-moon"/></svg><span>午夜牌室<small>The Vesper Chamber</small></span></a>
+<div class="mast-side"><button class="sound-toggle plaque" type="button" id="sound-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 18V6l11-3v12M9 9l11-3"/><ellipse cx="6.5" cy="18.5" rx="2.5" ry="2"/><ellipse cx="17.5" cy="15.5" rx="2.5" ry="2"/></svg><span id="sound-label">播放音樂</span></button><span class="sr-status" id="sound-status" role="status"></span><audio id="chamber-audio" src="./cathedral-loop.mp3?v=6" preload="none" loop></audio></div>
 </header>
 <main class="wrap">
 <section class="intro" aria-labelledby="title">
-<div class="vault-copy"><p class="kicker vault-eyebrow">燭下之邀</p><h1 id="title">午夜，<br>由妳親手<em>翻牌。</em></h1><p class="intro-copy">把問題放在心上。<br>哪一張讓妳停下目光，就選那一張。</p></div>
-<div class="gothic-window" aria-hidden="true"></div><svg class="vault-lines" viewBox="0 0 450 497" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor"><path d="M29 491V211C29 120 112 56 225 4c113 52 196 116 196 207v280M42 491V213C42 130 119 67 225 19c106 48 183 111 183 194v278M59 491V218C59 143 129 82 225 37c96 45 166 106 166 181v273M70 491V223C70 154 137 97 225 54c88 43 155 100 155 169v268" opacity=".67"/><path d="M225 38v95m0 25v110m-166-51h54m224 0h54M43 226h15m334 0h15M34 258h36m310 0h36M34 450h36m310 0h36M34 462h36m310 0h36M21 490h55m298 0h55" opacity=".6"/><circle cx="225" cy="143" r="33" opacity=".54"/><circle cx="225" cy="143" r="25" opacity=".67"/><circle cx="225" cy="143" r="20" opacity=".5"/><path d="m225 111 9 22 22 10-22 9-9 23-9-23-22-9 22-10 Zm-63 78 5 10 10 5-10 5-5 10-5-10-10-5 10-5zm126 0 5 10 10 5-10 5-5 10-5-10-10-5 10-5zM126 79c5 22-5 39-31 48m229-48c-5 22 5 39 31 48" opacity=".82"/><path d="M32 265q38 19 30 66m356-66q-38 19-30 66" opacity=".63"/></g></svg>
+ <div class="lancet">
+  <p class="kicker"><span aria-hidden="true">✠</span> 燭下之邀 <span aria-hidden="true">✠</span></p>
+  <p class="latin" aria-hidden="true">Arcana Magna</p>
+  <h1 id="title">午夜，<br>由妳親手<em>翻牌。</em></h1>
+  <svg class="rule" viewBox="0 0 320 24" aria-hidden="true"><use href="#o-rule"/></svg>
+  <p class="intro-copy">把問題放在心上。<br>哪一張讓妳停下目光，就選那一張。</p>
+  <a class="descend" href="#draw"><span>入座選牌</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a>
+ </div>
 </section>
-<div class="elk-clearing" aria-hidden="true"></div>
 <section id="draw" aria-labelledby="draw-title" class="table">
-<div class="table-head"><div><p class="kicker small numbered"><span aria-hidden="true">I.</span> 牌桌</p><h2 id="draw-title">妳來選牌</h2></div><div class="modes" role="group" aria-label="張數"><button type="button" data-mode="1" aria-pressed="true">單張</button><button type="button" data-mode="3" aria-pressed="false">三張</button></div></div>
+<div class="table-head"><div><p class="kicker numbered"><span class="numeral" aria-hidden="true">I</span> 牌桌</p><h2 id="draw-title">妳來選牌</h2></div><div class="modes" role="group" aria-label="張數"><button type="button" data-mode="1" aria-pressed="true">單張</button><button type="button" data-mode="3" aria-pressed="false">三張</button></div></div>
 <div class="question"><label for="question">想問的事 <span>選填</span></label><input id="question" type="text" maxlength="160" autocomplete="off" placeholder="例如：我可以從哪一步開始？"><p>問題只留在這個頁面，不會傳送或保存。</p></div>
 <div class="board" aria-labelledby="board-title">
-<div class="board-head"><div><p class="board-kicker">XXII · ARCANA MAGNA</p><h3 id="board-title">背面朝上</h3></div><button type="button" class="shuffle" id="shuffle" aria-label="重新洗牌">↻ <span>重新洗牌</span></button></div>
+<svg class="corner tl" aria-hidden="true"><use href="#o-corner"/></svg><svg class="corner tr" aria-hidden="true"><use href="#o-corner"/></svg><svg class="corner bl" aria-hidden="true"><use href="#o-corner"/></svg><svg class="corner br" aria-hidden="true"><use href="#o-corner"/></svg>
+<div class="board-head"><div><p class="board-kicker">XXII · Arcana Magna</p><h3 id="board-title">背面朝上</h3></div><button type="button" class="shuffle plaque" id="shuffle" aria-label="重新洗牌">↻ <span>重新洗牌</span></button></div>
 <p class="board-status" id="status" role="status" aria-live="polite">牌已洗好。選一張牌，再按「翻開牌」。</p>
 <div class="deck" id="deck" role="group" aria-label="二十二張背面朝上的塔羅牌"></div>
-<div class="board-end"><span id="counter">已選 0 / 1 張</span><button type="button" id="reveal" disabled>翻開牌 <span aria-hidden="true">✦</span></button></div>
+<div class="board-end"><span id="counter">已選 0 / 1 張</span><button type="button" id="reveal" class="plaque grand" disabled>翻開牌 <span aria-hidden="true">✦</span></button></div>
 </div>
 </section>
-<section id="reading" class="reading" aria-labelledby="reading-title" hidden tabindex="-1"><p class="kicker small numbered"><span aria-hidden="true">II.</span> 閱讀</p><h2 id="reading-title">妳翻開的牌</h2><p id="echo"></p><div id="results" class="results"></div><div class="reading-end"><button type="button" id="again">再抽一次</button><a href="#draw">回到牌桌</a></div></section>
+<section id="reading" class="reading" aria-labelledby="reading-title" hidden tabindex="-1"><svg class="rule" viewBox="0 0 320 24" aria-hidden="true"><use href="#o-rule"/></svg><p class="kicker numbered"><span class="numeral" aria-hidden="true">II</span> 閱讀</p><h2 id="reading-title">妳翻開的牌</h2><p id="echo"></p><div id="results" class="results"></div><div class="reading-end"><button type="button" id="again" class="plaque grand">再抽一次</button><a href="#draw">回到牌桌</a></div></section>
 </main>
-<footer class="wrap footer"><span><b aria-hidden="true">✺</b> 午夜牌室</span><p>牌不預言，只為思緒留一束光。</p></footer>
+<footer class="wrap footer"><svg class="rose" viewBox="-50 -50 100 100" aria-hidden="true"><g fill="none" stroke="currentColor"><circle r="47" stroke-width="1.2"/><circle r="40" stroke-width=".6"/><circle r="14" stroke-width="1"/><circle r="6" stroke-width=".8"/><g stroke-width=".8"><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(0)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(30)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(60)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(90)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(120)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(150)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(180)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(210)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(240)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(270)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(300)"/><path d="M0-14C9-20 9-34 0-40-9-34-9-20 0-14Z" transform="rotate(330)"/></g><g stroke-width=".5" stroke-dasharray="1 2.5"><circle r="44"/><circle r="22"/></g></g></svg><span class="latin" aria-hidden="true">Finis</span><span class="name">午夜牌室</span><p>牌不預言，只為思緒留一束光。</p></footer>
 <noscript><p class="wrap">這張牌桌需要 JavaScript 才能洗牌和翻牌。</p></noscript>
 </body>
 </html>

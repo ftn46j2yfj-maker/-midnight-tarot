@@ -1,11 +1,11 @@
 /* v2 — 抽牌儀式：哥德式暗場、燭光、拱門金線、符文、翻牌閃光 */
 .rt{position:fixed;inset:0;z-index:50;overflow:hidden;touch-action:none;-webkit-tap-highlight-color:transparent;
- --gold:#ecc982;--gold2:#f6e2b0;--ind:#1a1545;opacity:0;animation:rt-in .5s ease-out forwards}
+ --gold:#ecc982;--gold2:#f6e2b0;--ind:#3d0b14;opacity:0;animation:rt-in .5s ease-out forwards}
 .rt.rt-out{animation:rt-out .5s ease-in forwards}
 @keyframes rt-in{to{opacity:1}}
 @keyframes rt-out{from{opacity:1}to{opacity:0}}
 /* darkness + vignette */
-.rt-dark{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(14,10,34,.87) 0,rgba(8,5,20,.93) 48%,rgba(2,1,6,.98) 100%)}
+.rt-dark{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(26,6,11,.88) 0,rgba(10,4,6,.94) 48%,rgba(2,1,6,.98) 100%)}
 /* candle light: two warm pools that flicker unevenly */
 .rt-candle{position:absolute;width:70vmax;height:70vmax;left:50%;top:50%;margin:-35vmax 0 0 -35vmax;border-radius:50%;pointer-events:none;
  background:radial-gradient(circle,rgba(255,176,86,.34) 0,rgba(214,120,60,.14) 28%,transparent 58%);animation:rt-flick 1.9s steps(1,end) infinite;transform:translate3d(-26vw,22vh,0) scale(.55)}
@@ -13,7 +13,7 @@
 @keyframes rt-flick{0%{opacity:.95}8%{opacity:.62}15%{opacity:.88}24%{opacity:.7}33%{opacity:1}41%{opacity:.6}52%{opacity:.9}61%{opacity:.72}73%{opacity:.98}84%{opacity:.66}92%{opacity:.85}}
 /* mist */
 .rt-mist{position:absolute;left:-40%;width:180%;height:44%;pointer-events:none;opacity:.0;
- background:radial-gradient(ellipse 38% 50% at 30% 50%,rgba(150,140,215,.2),transparent 70%),radial-gradient(ellipse 34% 46% at 72% 55%,rgba(120,150,220,.16),transparent 70%)}
+ background:radial-gradient(ellipse 38% 50% at 30% 50%,rgba(165,120,128,.17),transparent 70%),radial-gradient(ellipse 34% 46% at 72% 55%,rgba(130,88,98,.15),transparent 70%)}
 .rt-mist.a{bottom:-6%;animation:rt-mist 7s ease-in-out .1s infinite alternate,rt-fade .9s ease-out .15s forwards}
 .rt-mist.b{top:8%;animation:rt-mist2 9s ease-in-out infinite alternate,rt-fade .9s ease-out .3s forwards;height:36%}
 @keyframes rt-mist{from{transform:translate3d(-8%,0,0)}to{transform:translate3d(10%,-4%,0)}}
@@ -48,20 +48,20 @@
 .rt-inner{position:absolute;inset:0;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;animation:rt-flip .8s cubic-bezier(.3,.6,.2,1) calc(1.6s + var(--i)*.12s) forwards}
 @keyframes rt-flip{0%{transform:rotateY(0) translateZ(0)}45%{transform:rotateY(100deg) translateZ(34px) scale(1.05)}100%{transform:rotateY(180deg) translateZ(0) scale(1)}}
 .rt-face{position:absolute;inset:0;border-radius:3px;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden;border:1px solid var(--gold)}
-.rt-back{color:var(--gold);background:radial-gradient(ellipse at 48% 11%,#623d39,#3b262d 57%,#211a25);box-shadow:inset 0 0 0 2px #e2af681f,0 6px 16px #000a;display:grid;place-items:center}
+.rt-back{color:#d6b26b;background:radial-gradient(ellipse 80% 55% at 50% 30%,#4a0f1b,#22080e 62%,#0d0507);box-shadow:inset 0 0 0 2px #e2af681f,0 6px 16px #000a;display:grid;place-items:center}
 .rt-back svg{width:88%;height:91%;opacity:.95}
-.rt-front{transform:rotateY(180deg);color:#352228;background:radial-gradient(ellipse at 53% 19%,#f6e8c1,#c8a579);display:grid;place-items:center;border-color:#f8e3ab}
+.rt-front{transform:rotateY(180deg);color:#4a0d17;background:radial-gradient(ellipse at 50% 22%,#f7ecd2,#d8c49a 70%,#b59a68);display:grid;place-items:center;border-color:#f8e3ab}
 .rt-front svg{width:86%;height:auto}
 .rt-front b{position:absolute;top:5%;left:0;right:0;text-align:center;font:600 11px/1 var(--serif);letter-spacing:.14em;opacity:.7}
 .rt-glow{position:absolute;inset:-26%;pointer-events:none;border-radius:50%;opacity:0;transform:scale(.7);
- background:radial-gradient(circle,rgba(246,214,140,.55) 0,rgba(110,90,220,.28) 38%,transparent 66%);animation:rt-glow 1.5s ease-out calc(1.55s + var(--i)*.12s) forwards}
+ background:radial-gradient(circle,rgba(246,214,140,.55) 0,rgba(170,30,52,.42) 38%,transparent 66%);animation:rt-glow 1.5s ease-out calc(1.55s + var(--i)*.12s) forwards}
 @keyframes rt-glow{0%{opacity:0;transform:scale(.7)}35%{opacity:1;transform:scale(1.05)}100%{opacity:.5;transform:scale(1)}}
-.rt-label{position:absolute;left:0;right:0;text-align:center;top:var(--labTop);opacity:0;color:#f3dba8;font-family:var(--serif);
+.rt-label{position:absolute;left:0;right:0;text-align:center;top:var(--labTop);opacity:0;color:#f3dba8;font-family:"Noto Serif TC",serif;
  animation:rt-fade .6s ease-out calc(2.1s + var(--i)*.12s) forwards;pointer-events:none}
 .rt-label b{display:block;font-weight:600;font-size:clamp(15px,4.3vw,22px);letter-spacing:.2em;text-shadow:0 0 12px rgba(236,201,130,.6)}
-.rt-label i{display:block;font-style:italic;font-size:11px;opacity:.7;letter-spacing:.08em;margin-top:3px}
+.rt-label i{display:block;font-style:normal;font-family:"Cinzel",Georgia,serif;font-size:11px;opacity:.7;letter-spacing:.08em;margin-top:3px}
 /* reveal flash */
-.rt-flash{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 48%,#fff6d8 0,rgba(246,220,150,.75) 24%,rgba(120,100,230,.28) 60%,transparent 85%);animation:rt-flash .55s ease-out 1.75s forwards}
+.rt-flash{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 48%,#fff6d8 0,rgba(246,220,150,.75) 24%,rgba(158,26,47,.38) 60%,transparent 85%);animation:rt-flash .55s ease-out 1.75s forwards}
 @keyframes rt-flash{0%{opacity:0}28%{opacity:.78}100%{opacity:0}}
 .rt-skip{position:absolute;bottom:max(18px,env(safe-area-inset-bottom));left:0;right:0;text-align:center;color:#b9a77e;font:11px/1 var(--serif);letter-spacing:.2em;opacity:0;animation:rt-fade .6s ease-out 1s forwards;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.rt{display:none!important}}
