@@ -182,7 +182,7 @@ const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches, startY=win
 if(reduced)reading.scrollIntoView({block:"start",behavior:"auto"});
 else revealScroll=window.setTimeout(()=>{revealScroll=0;if(revealed&&!reading.hidden&&document.activeElement===reading&&Math.abs(window.scrollY-startY)<16)reading.scrollIntoView({block:"start",behavior:"smooth"});},410);}
 document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>{const n=Number(b.dataset.mode);if(n===mode)return;mode=n;document.querySelectorAll("[data-mode]").forEach(x=>x.setAttribute("aria-pressed",String(Number(x.dataset.mode)===mode)));reset();}));
-$("shuffle").addEventListener("click",()=>reset());reveal.addEventListener("click",showReading);
+$("shuffle").addEventListener("click",()=>reset());reveal.addEventListener("click",()=>{if(revealed||selected.length!==mode)return;const go=window.__ritual;if(!go){showReading();return;}go(selected.map(s=>{const c=major[order[s]];return{n:order[s],name:c[0],en:c[1],path:c[5]};}),cardBack,showReading);});
 $("again").addEventListener("click",()=>{reset();deck.querySelector("button").focus();});
 window.addEventListener("pageshow",e=>{if(e.persisted){question.value="";reset();}});
 reset();
